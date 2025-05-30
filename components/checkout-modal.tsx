@@ -10,11 +10,11 @@ interface CheckoutModalProps {
 
 export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
   const handleOffer1 = () => {
-    window.open("https://xsensis.com.br/pay/permanente/", "_blank")
+    window.open("https://pay.xsensis.com.br/permanente/", "_blank")
   }
 
   const handleOffer2 = () => {
-    window.open("https://xsensis.com.br/pay/trimensal/", "_blank")
+    window.open("https://pay.xsensis.com.br/trimensal/", "_blank")
   }
 
   const modalVariants = {
