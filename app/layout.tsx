@@ -1,10 +1,35 @@
+'use client';
+
 import type React from "react"
 import type { Metadata } from "next"
 import Script from "next/script"
 import { Inter } from "next/font/google"
 import "./globals.css"
+import { useEffect } from 'react';
+import { saveUtmsToLocalStorage } from '@/lib/utmUtils';
 
 const inter = Inter({ subsets: ["latin"] })
+
+// Dentro do componente React (RootLayout ou outro)
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    // Executa apenas no lado do cliente
+    if (typeof window !== 'undefined') {
+      // Salva as UTMs da URL atual ao carregar a página
+      saveUtmsToLocalStorage();
+    }
+  }, []); // O array vazio garante que rode apenas uma vez no mount inicial
+
+  return (
+    <html lang="pt-BR">
+      {/* Restante do código do layout... */}
+      <body className={inter.className}>
+        {/* ... */}
+        {children}
+      </body>
+    </html>
+  );
+}
 
 export const metadata: Metadata = {
   title: "SENSIS - Painel Elite Free Fire",
