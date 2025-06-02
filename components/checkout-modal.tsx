@@ -2,14 +2,19 @@
 
 import { motion, AnimatePresence } from "framer-motion"
 import { X, Crown, CheckCircle, ExternalLink } from "lucide-react"
-import { generateUtmQueryString } from "@/lib/utmUtils";
+import { useEffect } from "react";
+import { saveUtmsToLocalStorage } from "@/lib/utmUtils";
 
 interface CheckoutModalProps {
   isOpen: boolean
   onClose: () => void
 }
-
+    
 export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
+  useEffect(() => {
+  saveUtmsToLocalStorage(); // Salva as UTMs ao carregar a página
+},
+  
   
 const handleOffer1 = () => {
   const utmQuery = generateUtmQueryString();
