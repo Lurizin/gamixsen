@@ -13,12 +13,12 @@ export default function CheckoutModal({ isOpen, onClose }: CheckoutModalProps) {
   
 const handleOffer1 = () => {
   const utmQuery = generateUtmQueryString();
-  window.open(`https://pay.xsensis.com.br/permanente/${utmQuery}`, "_blank");
+  window.open(`https://pay.xsensis.com.br/permanente${utmQuery}`, "_blank"); // URL corrigida
 };
 
 const handleOffer2 = () => {
   const utmQuery = generateUtmQueryString();
-  window.open(`https://pay.xsensis.com.br/trimensal/${utmQuery}`, "_blank");
+  window.open(`https://pay.xsensis.com.br/trimensal${utmQuery}`, "_blank"); // URL corrigida
 };
 
 
